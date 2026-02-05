@@ -1,65 +1,80 @@
-import Image from "next/image";
+import Link from 'next/link';
+
+interface BlogPost {
+  slug: string;
+  title: string;
+  date: string;
+  excerpt: string;
+  category: '기술' | '회고';
+}
+
+const blogPosts: BlogPost[] = [
+  {
+    slug: 'nextjs-blog-setup',
+    title: 'Next.js로 블로그 만들기',
+    date: '2025-02-05',
+    excerpt:
+      'Next.js와 Tailwind CSS를 활용하여 미니멀한 블로그를 만드는 과정을 소개합니다.',
+    category: '기술',
+  },
+  {
+    slug: '2024-retrospective',
+    title: '2024년 회고',
+    date: '2025-01-15',
+    excerpt: '지난 한 해 동안의 성장과 배움에 대해 정리해봅니다.',
+    category: '회고',
+  },
+  {
+    slug: 'react-hooks-guide',
+    title: 'React Hooks 완벽 가이드',
+    date: '2024-12-20',
+    excerpt:
+      'useState, useEffect부터 커스텀 Hook까지 React Hooks의 모든 것을 알아봅니다.',
+    category: '기술',
+  },
+];
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+    <main className="mx-auto max-w-2xl px-6 py-12">
+      {/* 헤더 섹션 */}
+      <section className="mb-16">
+        <h1 className="text-4xl font-bold mb-3">Seohyun's Log</h1>
+        <p className="text-lg text-zinc-600">
+          기술적인 성장과 개발 경험을 기록하는 공간입니다.
+        </p>
+      </section>
+
+      {/* 글 목록 */}
+      <section>
+        <div className="space-y-8">
+          {blogPosts.map(post => (
+            <article
+              key={post.slug}
+              className="border-b border-zinc-200 pb-8 last:border-b-0"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+              <Link href={`/blog/${post.slug}`}>
+                <h2 className="text-2xl font-semibold mb-2 hover:text-zinc-600 transition-colors">
+                  {post.title}
+                </h2>
+              </Link>
+              <div className="flex items-center gap-4 mb-3 text-sm text-zinc-500">
+                <time dateTime={post.date}>
+                  {new Date(post.date).toLocaleDateString('ko-KR', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                  })}
+                </time>
+                <span className="px-2 py-1 bg-zinc-100 text-zinc-700 rounded">
+                  {post.category}
+                </span>
+              </div>
+              <p className="text-zinc-600 leading-relaxed">{post.excerpt}</p>
+            </article>
+          ))}
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+      </section>
+    </main>
   );
 }
