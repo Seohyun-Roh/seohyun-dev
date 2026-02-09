@@ -5,14 +5,8 @@ import nextTs from 'eslint-config-next/typescript';
 const eslintConfig = defineConfig([
   ...nextVitals,
   ...nextTs,
-  // Integrate Prettier with ESLint: run Prettier as an ESLint rule and disable conflicting rules
   {
-    plugins: ['prettier'],
-    extends: ['plugin:prettier/recommended', 'prettier'],
-    rules: {
-      // Let prettier handle formatting
-      'prettier/prettier': 'error',
-    },
+    extends: ['next', 'prettier'],
   },
   // Override default ignores of eslint-config-next.
   globalIgnores([
