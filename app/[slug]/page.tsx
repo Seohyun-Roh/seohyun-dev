@@ -1,11 +1,7 @@
 import Link from 'next/link';
 import { getPostBySlug } from '../lib/post';
 
-export default async function BlogPost({
-  params,
-}: {
-  params: { slug: string };
-}) {
+export default async function BlogPost({ params }: { params: { slug: string } }) {
   const { slug } = params;
   const post = await getPostBySlug(slug);
 
@@ -26,10 +22,7 @@ export default async function BlogPost({
 
   return (
     <main className="mx-auto max-w-2xl px-6 py-12">
-      <Link
-        href="/"
-        className="inline-block mb-8 text-sm text-zinc-600 hover:text-zinc-900 transition-colors"
-      >
+      <Link href="/" className="inline-block mb-8 text-sm text-zinc-600 hover:text-zinc-900 transition-colors">
         ← 목록으로 돌아가기
       </Link>
 
@@ -44,25 +37,17 @@ export default async function BlogPost({
                 day: 'numeric',
               })}
             </time>
-            <span className="px-2 py-1 bg-zinc-100 text-zinc-700 rounded">
-              {meta.category}
-            </span>
+            <span className="px-2 py-1 bg-zinc-100 text-zinc-700 rounded">{meta.category}</span>
           </div>
         </header>
 
-        <div
-          className="prose prose-sm max-w-none"
-          dangerouslySetInnerHTML={{ __html: content }}
-        />
+        <div className="prose prose-sm max-w-none" dangerouslySetInnerHTML={{ __html: content }} />
       </article>
 
       <div className="border-t border-zinc-200 my-12" />
 
       <footer className="text-center">
-        <Link
-          href="/"
-          className="text-sm text-zinc-600 hover:text-zinc-900 transition-colors"
-        >
+        <Link href="/" className="text-sm text-zinc-600 hover:text-zinc-900 transition-colors">
           ← 목록으로 돌아가기
         </Link>
       </footer>

@@ -12,10 +12,7 @@ export default function Header() {
     <header className="border-b border-zinc-200">
       <nav className="mx-auto max-w-2xl px-6 h-[62px] flex items-center">
         <div className="flex items-center justify-between w-full">
-          <Link
-            href="/"
-            className="text-lg font-semibold hover:text-zinc-700 transition-colors"
-          >
+          <Link href="/" className="text-lg font-semibold hover:text-zinc-700 transition-colors">
             Seohyun's Log
           </Link>
           <div className="flex gap-6">
