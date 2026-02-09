@@ -10,9 +10,12 @@
     "format": "prettier --write ."
   },
   "dependencies": {
+    "gray-matter": "^4.0.3",
     "next": "16.1.6",
     "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react-dom": "19.2.4",
+    "remark": "^15.0.1",
+    "remark-html": "^16.0.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
@@ -21,9 +24,9 @@
     "@types/react-dom": "^19",
     "eslint": "^10",
     "eslint-config-next": "16.1.6",
-    "prettier": "^3.8.1",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.5",
+    "prettier": "^3.8.1",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
