@@ -41,7 +41,7 @@ export default async function BlogPost({ params }: { params: { slug: string } })
           </div>
         </header>
 
-        <div className="prose prose-sm max-w-none" dangerouslySetInnerHTML={{ __html: content }} />
+        <div className="markdown-body" dangerouslySetInnerHTML={{ __html: content }} />
       </article>
 
       <div className="border-t border-zinc-200 my-12" />
