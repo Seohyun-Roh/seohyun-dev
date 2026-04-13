@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Seohyun's Log",
+  title: 'seohyun.dev',
   description: '기술 블로그 및 회고',
 };
 

@@ -13,7 +13,7 @@ export default function Header() {
       <nav className="mx-auto max-w-4xl px-6 h-[62px] flex items-center">
         <div className="flex items-center justify-between w-full">
           <Link href="/" className="text-lg font-semibold hover:text-zinc-700 transition-colors">
-            Seohyun's Log
+            seohyun.dev
           </Link>
           <div className="flex gap-6">
             <Link

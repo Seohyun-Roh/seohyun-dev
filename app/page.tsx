@@ -6,11 +6,6 @@ export default async function Home() {
 
   return (
     <>
-      <section className="mb-16">
-        <h1 className="text-4xl font-bold mb-3">Seohyun's Log</h1>
-        <p className="text-lg text-zinc-600">기술적인 성장과 개발 경험을 기록하는 공간입니다.</p>
-      </section>
-
       <section>
         <div className="space-y-8">
           {posts.length === 0 && <p className="text-zinc-600">게시물이 없습니다.</p>}
