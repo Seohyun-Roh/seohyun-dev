@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function About() {
   return (
-    <main className="mx-auto max-w-2xl px-6 py-12">
+    <>
       <Link href="/" className="inline-block mb-8 text-sm text-zinc-700 hover:text-zinc-900 transition-colors">
         ← 목록으로 돌아가기
       </Link>
@@ -114,6 +114,6 @@ export default function About() {
           </div>
         </section>
       </article>
-    </main>
+    </>
   );
 }

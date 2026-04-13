@@ -5,7 +5,7 @@ export default async function Home() {
   const posts = await getPosts();
 
   return (
-    <main className="mx-auto max-w-2xl px-6 py-12">
+    <>
       <section className="mb-16">
         <h1 className="text-4xl font-bold mb-3">Seohyun's Log</h1>
         <p className="text-lg text-zinc-600">기술적인 성장과 개발 경험을 기록하는 공간입니다.</p>
@@ -35,6 +35,6 @@ export default async function Home() {
           ))}
         </div>
       </section>
-    </main>
+    </>
   );
 }

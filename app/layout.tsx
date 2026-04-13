@@ -28,7 +28,7 @@ export default function RootLayout({
     <html lang="ko">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white text-zinc-900`}>
         <Header />
-        {children}
+        <main className="mx-auto max-w-4xl px-6 py-12">{children}</main>
       </body>
     </html>
   );

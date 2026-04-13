@@ -7,21 +7,19 @@ export default async function BlogPost({ params }: { params: { slug: string } })
 
   if (!post) {
     return (
-      <main className="mx-auto max-w-2xl px-6 py-12">
-        <div className="text-center">
-          <h1 className="text-2xl font-bold mb-4">글을 찾을 수 없습니다</h1>
-          <Link href="/" className="text-blue-600 hover:text-blue-800">
-            홈으로 돌아가기
-          </Link>
-        </div>
-      </main>
+      <div className="text-center">
+        <h1 className="text-2xl font-bold mb-4">글을 찾을 수 없습니다</h1>
+        <Link href="/" className="text-blue-600 hover:text-blue-800">
+          홈으로 돌아가기
+        </Link>
+      </div>
     );
   }
 
   const { meta, content } = post;
 
   return (
-    <main className="mx-auto max-w-2xl px-6 py-12">
+    <>
       <Link href="/" className="inline-block mb-8 text-sm text-zinc-600 hover:text-zinc-900 transition-colors">
         ← 목록으로 돌아가기
       </Link>
@@ -51,6 +49,6 @@ export default async function BlogPost({ params }: { params: { slug: string } })
           ← 목록으로 돌아가기
         </Link>
       </footer>
-    </main>
+    </>
   );
 }
