@@ -10,6 +10,7 @@
     "format": "prettier --write ."
   },
   "dependencies": {
+    "@vercel/blob": "^2.3.3",
     "github-markdown-css": "^5.9.0",
     "gray-matter": "^4.0.3",
     "next": "16.1.6",
