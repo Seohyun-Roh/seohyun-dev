@@ -3,7 +3,19 @@ import path from 'path';
 import matter from 'gray-matter';
 import { remark } from 'remark';
 import gfm from 'remark-gfm';
-import html from 'remark-html';
+import remarkRehype from 'remark-rehype';
+import rehypeHighlight from 'rehype-highlight';
+import rehypeStringify from 'rehype-stringify';
+import { common } from 'lowlight';
+import type { LanguageFn } from 'highlight.js';
+import hljsSvelte from 'highlightjs-svelte';
+
+let svelteSyntax: LanguageFn | undefined;
+hljsSvelte({
+  registerLanguage: (_name: string, syntax: LanguageFn) => {
+    svelteSyntax = syntax;
+  },
+} as never);
 
 const postsDir = path.join(process.cwd(), 'blog');
 
@@ -51,7 +63,14 @@ export async function getPostBySlug(slug: string) {
 
   const raw = fs.readFileSync(fullPath, 'utf8');
   const { data, content } = matter(raw);
-  const processed = await remark().use(gfm).use(html).process(content);
+  const processed = await remark()
+    .use(gfm)
+    .use(remarkRehype)
+    .use(rehypeHighlight, {
+      languages: { ...common, ...(svelteSyntax ? { svelte: svelteSyntax } : {}) },
+    })
+    .use(rehypeStringify)
+    .process(content);
   const contentHtml = processed.toString();
 
   return {

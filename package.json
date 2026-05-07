@@ -13,12 +13,18 @@
     "@vercel/blob": "^2.3.3",
     "github-markdown-css": "^5.9.0",
     "gray-matter": "^4.0.3",
+    "highlight.js": "^11.11.1",
+    "highlightjs-svelte": "^1.0.6",
+    "lowlight": "^3.3.0",
     "next": "16.1.6",
     "react": "19.2.4",
     "react-dom": "19.2.4",
+    "rehype-highlight": "^7.0.2",
+    "rehype-stringify": "^10.0.1",
     "remark": "^15.0.1",
     "remark-gfm": "^4.0.1",
-    "remark-html": "^16.0.1"
+    "remark-html": "^16.0.1",
+    "remark-rehype": "^11.1.2"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
