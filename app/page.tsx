@@ -1,4 +1,5 @@
 import Link from 'next/link';
+
 import { getPosts } from './lib/post';
 
 export default async function Home() {

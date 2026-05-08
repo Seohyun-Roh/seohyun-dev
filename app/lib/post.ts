@@ -1,14 +1,14 @@
 import fs from 'fs';
-import path from 'path';
 import matter from 'gray-matter';
+import type { LanguageFn } from 'highlight.js';
+import hljsSvelte from 'highlightjs-svelte';
+import { common } from 'lowlight';
+import path from 'path';
+import rehypeHighlight from 'rehype-highlight';
+import rehypeStringify from 'rehype-stringify';
 import { remark } from 'remark';
 import gfm from 'remark-gfm';
 import remarkRehype from 'remark-rehype';
-import rehypeHighlight from 'rehype-highlight';
-import rehypeStringify from 'rehype-stringify';
-import { common } from 'lowlight';
-import type { LanguageFn } from 'highlight.js';
-import hljsSvelte from 'highlightjs-svelte';
 
 let svelteSyntax: LanguageFn | undefined;
 hljsSvelte({
@@ -58,7 +58,7 @@ export async function getPosts(): Promise<PostMeta[]> {
 
 export async function getPostBySlug(slug: string) {
   const fullPath = path.join(postsDir, `${slug}.md`);
-  
+
   if (!fs.existsSync(fullPath)) return null;
 
   const raw = fs.readFileSync(fullPath, 'utf8');

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+
 import { getPostBySlug } from '../lib/post';
 
 export default async function BlogPost({ params }: { params: { slug: string } }) {
